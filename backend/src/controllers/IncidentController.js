@@ -6,8 +6,6 @@ module.exports = {
 
     const [count] = await connection("incidents").count();
 
-    console.log(count);
-
     const incidents = await connection("incidents")
       .join("ongs", "ongs.id", "=", "incidents.ong_id")
       .limit(5)
@@ -16,7 +14,7 @@ module.exports = {
         "incidents.*",
         "ongs.name",
         "ongs.email",
-        "ong.whatsapp",
+        "ongs.whatsapp",
         "ongs.city",
         "ongs.uf"
       ]);
